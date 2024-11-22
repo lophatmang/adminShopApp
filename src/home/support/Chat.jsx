@@ -29,6 +29,7 @@ function Chat() {
       extraHeaders: {
         "my-custom-header": "abcd",
       },
+      autoConnect: false,
     });
     socket.current.on("sendDataServer", (dataGot) => {
       if (userChat == dataGot.data.userId) {
