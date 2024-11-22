@@ -4,6 +4,13 @@ import swal from "sweetalert";
 export function format2(n) {
   return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
+export function format(n) {
+  const formatter = new Intl.NumberFormat("vi-VI", {
+    style: "currency",
+    currency: "VND",
+  }).format(n);
+  return formatter;
+}
 
 export async function loaderTransaction() {
   const resUser = await fetch(

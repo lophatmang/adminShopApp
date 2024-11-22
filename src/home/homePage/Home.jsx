@@ -9,7 +9,7 @@ import classes from "./Home.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import { format2 } from "../../router/Router";
+import { format, format2 } from "../../router/Router";
 
 function Home() {
   const data = useLoaderData();
@@ -118,7 +118,7 @@ function Home() {
           </div>
           <div>
             <span>EARNINGS</span>
-            <h3>{`$ ${earning}`}</h3>
+            <h3>{`$ ${format(earning)}`}</h3>
             <FontAwesomeIcon
               style={{ color: "green", backgroundColor: "#0080003e" }}
               icon="fa-solid fa-dollar-sign"
@@ -126,7 +126,7 @@ function Home() {
           </div>
           <div>
             <span>BALANCE</span>
-            <h3>{`$ ${balance()}`}</h3>
+            <h3>{`$ ${format(balance())}}`}</h3>
             <FontAwesomeIcon
               style={{ color: "purple", backgroundColor: "#80008037" }}
               icon="fa-solid fa-wallet"
