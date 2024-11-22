@@ -25,10 +25,7 @@ function Chat() {
   useEffect(() => {
     ///////////////////////////////////
     socket.current = io(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}`, {
-      withCredentials: true,
-      extraHeaders: {
-        "my-header": "chat message",
-      },
+      transports: ["websocket", "polling", "flashsocket"],
     });
     socket.current.on("sendDataServer", (dataGot) => {
       if (userChat == dataGot.data.userId) {
