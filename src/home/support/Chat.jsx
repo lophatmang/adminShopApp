@@ -23,7 +23,9 @@ function Chat() {
 
   useEffect(() => {
     ///////////////////////////////////
-    socket.current = io(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}`);
+    socket.current = io(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}`, {
+      transports: ["websocket"],
+    });
     socket.current.on("sendDataServer", (dataGot) => {
       if (userChat == dataGot.data.userId) {
         setMessageList((messageList) => [...messageList, dataGot.data]);
