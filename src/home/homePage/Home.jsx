@@ -126,7 +126,7 @@ function Home() {
           </div>
           <div>
             <span>BALANCE</span>
-            <h3>{`$ ${format(balance())}}`}</h3>
+            <h3>{`$ ${format(balance())}`}</h3>
             <FontAwesomeIcon
               style={{ color: "purple", backgroundColor: "#80008037" }}
               icon="fa-solid fa-wallet"
