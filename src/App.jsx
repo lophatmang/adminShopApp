@@ -22,7 +22,6 @@ import Support from "./home/support/Support";
 import DetailOrder from "./home/detailOrder/DetailOrder";
 import NewProduct from "./home/newProduct/NewProduct";
 import Chat from "./home/support/Chat";
-
 library.add(fas);
 
 const router = createBrowserRouter([
