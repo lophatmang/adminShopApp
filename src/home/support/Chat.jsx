@@ -24,11 +24,7 @@ function Chat() {
 
   useEffect(() => {
     ///////////////////////////////////
-    socket.current = io(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}`, {
-      extraHeaders: {
-        "Access-Control-Allow-Origin": "*",
-      },
-    });
+    socket.current = io(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}`);
     socket.current.on("sendDataServer", (dataGot) => {
       if (userChat == dataGot.data.userId) {
         setMessageList((messageList) => [...messageList, dataGot.data]);
