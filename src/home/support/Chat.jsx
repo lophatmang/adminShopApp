@@ -19,13 +19,20 @@ function Chat() {
   const listRef = useRef();
   const [messageList, setMessageList] = useState();
   const socket = useRef();
+  const connectionOptions = {
+    "force new connection": true,
+    reconnectionAttempts: "Infinity",
+    timeout: 10000,
+    transports: ["websocket"],
+  };
   if (data && data.length == 0 && userChat) return <Navigate to="/support" />;
 
   useEffect(() => {
     ///////////////////////////////////
-    socket.current = io(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}`, {
-      transports: ["websocket"],
-    });
+    socket.current = io(
+      `${import.meta.env.VITE_REACT_APP_BACKEND_URL}`,
+      connectionOptions
+    );
     socket.current.on("sendDataServer", (dataGot) => {
       if (userChat == dataGot.data.userId) {
         setMessageList((messageList) => [...messageList, dataGot.data]);
